@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/MarsBase.Domain/MarsBase.Domain.csproj" />
+    <Project Path="src/MarsBase.Application/MarsBase.Application.csproj" />
+    <Project Path="src/MarsBase.Infrastructure/MarsBase.Infrastructure.csproj" />
+    <Project Path="src/MarsBase.Api/MarsBase.Api.csproj" />
+  </Folder>
+</Solution>
