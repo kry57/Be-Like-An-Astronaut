@@ -1,0 +1,28 @@
+@host = http://localhost:5080
+
+### 1) Start a mission  (copy the returned "id" into @sessionId)
+POST {{host}}/api/sessions
+Content-Type: application/json
+
+{ "playerName": "Khaled" }
+
+###
+@sessionId = PASTE-SESSION-ID-HERE
+
+### 2) Current state (resources, crew, active emergency)
+GET {{host}}/api/sessions/{{sessionId}}
+
+### 3) Choose an option for the current emergency (use an option id from step 2)
+POST {{host}}/api/sessions/{{sessionId}}/choices
+Content-Type: application/json
+
+{ "optionId": 1 }
+
+### 4) History of decisions
+GET {{host}}/api/sessions/{{sessionId}}/history
+
+### 5) Play again
+POST {{host}}/api/sessions/{{sessionId}}/restart
+
+### Health
+GET {{host}}/health
