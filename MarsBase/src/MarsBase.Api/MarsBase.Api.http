@@ -1,0 +1,45 @@
+@baseUrl = https://localhost:7001
+@sessionId = REPLACE-WITH-SESSION-GUID
+
+### Start a duo Explorer session
+POST {{baseUrl}}/api/explorer/sessions
+Content-Type: application/json
+
+{
+  "playerName": "Omar",
+  "hero": "both",
+  "playMode": "duo",
+  "difficulty": "medium",
+  "players": [
+    { "name": "Omar", "age": 10, "role": "Mission Leader" },
+    { "name": "Sara", "age": 9, "role": "Science Officer" }
+  ]
+}
+
+### Get saved session
+GET {{baseUrl}}/api/explorer/sessions/{{sessionId}}
+
+### Record level 1 option 2
+POST {{baseUrl}}/api/explorer/sessions/{{sessionId}}/decisions
+Content-Type: application/json
+
+{
+  "level": 1,
+  "option": 2
+}
+
+### Persist current screen and advance player turn
+PATCH {{baseUrl}}/api/explorer/sessions/{{sessionId}}/screen
+Content-Type: application/json
+
+{
+  "screenId": "11",
+  "level": 2,
+  "advanceTurn": true
+}
+
+### Restart
+POST {{baseUrl}}/api/explorer/sessions/{{sessionId}}/restart
+
+### Health
+GET {{baseUrl}}/health
